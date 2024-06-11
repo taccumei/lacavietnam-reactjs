@@ -1,13 +1,13 @@
 import React from 'react'
 import classes from './thumbnails.module.css'
 import { Link } from 'react-router-dom'
-import StarRating from '../../StarRating/StarRating'
-import Price from '../../Price/Price'
+import StarRating from '../StarRating/StarRating'
+import Price from '../Price/Price'
 
 export default function Thumbnails({foods}) {
-  return <ul className={classes.list}>
-    {
-      foods.map(food =>
+  return (
+    <ul className={classes.list}>
+    {foods.map(food => (
         <li key={food.id}>
           <Link to={`/food/${food.id}`}>
             <img
@@ -46,7 +46,7 @@ export default function Thumbnails({foods}) {
             </div>
             </Link>
         </li>
-      )
-    }
+      ))}
   </ul>
+  )
 }
