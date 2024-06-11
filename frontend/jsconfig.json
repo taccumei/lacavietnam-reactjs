@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "moduleRevolution": "node"
+  },
+  "include": ["src"]
+}
