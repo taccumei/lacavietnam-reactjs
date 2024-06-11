@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "moduleRevolution": "node"
+    "moduleResolution": "node"
   },
   "include": ["src"]
 }
