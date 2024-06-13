@@ -27,8 +27,8 @@ export default function HomePage() {
   useEffect(() => {
     getAllTags().then(tags=>dispatch({type: 'TAGS_LOADED', payload: tags}))
     const loadedFoods = tag ? getAllByTag(tag) : searchTerm ? search(searchTerm) : getAll();
-    loadedFoods.then(foods => dispatch({ type: 'FOODS_LOADED', payload: foods }, [searchTerm, tag]));
-})
+    loadedFoods.then(foods => dispatch({ type: 'FOODS_LOADED', payload: foods }));
+},[searchTerm, tag])
 
   return (
     <>

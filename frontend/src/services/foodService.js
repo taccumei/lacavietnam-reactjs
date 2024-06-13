@@ -10,6 +10,9 @@ export const search = async searchTerm =>
 export const getAllTags = async () => sample_tags;
 
 export const getAllByTag = async tag =>{
-  if (tag === 'All') return getAll;
+  if (tag === 'All') return getAll();
   return sample_foods.filter(item => item.tags?.includes(tag));
 }
+
+export const getById = async foodId =>
+  sample_foods.find(item => item.id === foodId);

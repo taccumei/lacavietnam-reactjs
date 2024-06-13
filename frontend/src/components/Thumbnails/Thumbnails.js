@@ -38,15 +38,15 @@ export default function Thumbnails({foods}) {
                 <span>🕒</span>
                 {food.cookTime}
               </div>
-              {/* price */}
-              <div className={classes.price}>
-                <Price price={food.price}/>
-              </div>
             </div>
+            {/* price */}
+            <div className={classes.price}>
+              <Price price={food.price}/>
             </div>
-            </Link>
-        </li>
-      ))}
+          </div>
+        </Link>
+      </li>
+    ))}
   </ul>
   )
 }
