@@ -4,13 +4,14 @@ import { useCart } from '../../hooks/useCart'
 import Title from '../../components/Title/Title';
 import { Link } from 'react-router-dom';
 import Price from '../../components/Price/Price';
+import NotFound from '../../components/NotFound/NotFound';
 
 export default function CartPage() {
   const { cart, removeFromCart, changeQuantity } = useCart();
   return <>
     <Title title="Cart Page" margin="1.5rem 0 0 2.5rem" />
     
-    {cart && cart.items.length > 0 && 
+    {cart.items.length === 0?(<NotFound message="Cart Page Is Empty!"/>) : ( 
       <div className={classes.container}>
         <ul className={classes.list}>
           {cart.items.map(item => <li key={item.food.id}>
@@ -52,6 +53,7 @@ export default function CartPage() {
           </div>
           <Link to="/checkout">Proceed To Checkout</Link>
         </div>
-      </div>}
+      </div>
+    )}
   </>;
 }
