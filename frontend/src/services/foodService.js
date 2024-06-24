@@ -21,6 +21,7 @@ export const getAllByTag = async tag =>{
   return data;
 }
 
+
 export const getById = async foodId => {
   const { data } = await axios.get('/api/foods/' + foodId);
   return data;

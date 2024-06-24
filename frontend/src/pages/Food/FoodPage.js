@@ -23,9 +23,13 @@ export default function FoodPage() {
     getById(id).then(setFood);
   }, [id]);
 
-  return <>
-    {!food (<NotFound message="Food Not Found!" linkText="Back To Home Page"/>)&& <div className={classes.container}>
-      <img className={classes.image} src={`/foods/${food.imageUrl}`} alt={food.name} />
+  return (
+    <>
+      {!food ? (
+        <NotFound message="Food Not Found!" linkText="Back To Home Page" />
+      ) : (
+        < div className={classes.container}>
+      <img className={classes.image} src={`${food.imageUrl}`} alt={food.name} />
       <div className={classes.details}>
         <div className={classes.header}>
           <span className={classes.name}>{food.name}</span>
@@ -48,6 +52,7 @@ export default function FoodPage() {
         </div>
         <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
-    </div>}
-  </>
+        </div>
+    )}
+  </>)
 }
