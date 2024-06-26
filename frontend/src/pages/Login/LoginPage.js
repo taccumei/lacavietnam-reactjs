@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import classes from './loginPage.module.css';
 import Title from '../../components/Title/Title';
@@ -25,7 +25,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className={classes.constainer}>
+    <div className={classes.container}>
       <div className={classes.details}>
         <Title tittle="Login" />
         <form onSubmit={handleSubmit(submit)} noValidate>
@@ -46,14 +46,20 @@ export default function LoginPage() {
             type="password"
             label="Password"
             {...register('password', {
-            required: true,
+              required: true,
             })}
             error={errors.password}
           />
 
-          <Button type="submit" text="Login"/>
+          <Button type="submit" text="Login" />
+          <div className={classes.register}>
+            New User? &nbsp;
+            <Link to={`/register${returnUrl ? 'returnUrl=' + returnUrl : ''}`}>
+              Register here
+            </Link>
+          </div>
         </form>
       </div>
     </div>
-  )
+  );
 }
