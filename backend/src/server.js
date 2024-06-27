@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import foodRouter from './routers/food.router.js'
 import userRouter from './routers/user.router.js'
+import orderRouter from './routers/order.router.js'
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(cors({
 
 app.use('/api/foods', foodRouter);
 app.use('/api/users', userRouter);
+app.use('/api/orders', orderRouter);
 
 const PORT = 4000;
 
