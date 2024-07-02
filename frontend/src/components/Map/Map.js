@@ -4,6 +4,7 @@ import classes from './map.module.css'
 import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, Marker, Popup, useMapEvent } from 'react-leaflet'
 import { toast } from 'react-toastify'
+import * as L from 'leaflet';
 
 export default function Map({readonly, location, onChange}) {
   return <div className={classes.container}>
@@ -50,6 +51,13 @@ function FindButtonAndMarker({ readonly, location, onChange }) {
     }
   });
 
+  const markerIcon = new L.Icon({
+    iconUrl: '/marker-icon-2x.png',
+    iconSize: [25, 41],
+    iconAnchor: [12.5, 41],
+    popupAnchor: [0,-41],
+  });
+
   return <>
     {!readonly && (
       <button
@@ -69,6 +77,7 @@ function FindButtonAndMarker({ readonly, location, onChange }) {
         }}
         position={position}
         draggable={!readonly}
+        icon={markerIcon}
       >
         <Popup>Shipping Location</Popup>
       </Marker>
