@@ -60,6 +60,14 @@ export default function CartProvider({ children }) {
     setCartItems(cartItems.map(item => item.food.id === food.id ? changeCartItem : item));
   }
 
+  const clearCart = () => {
+    localStorage.removeItem(CART_KEY);
+    const { items, totalPrice, totalCount } = EMPTY_CART;
+    setCartItems(items);
+    setTotalCount(totalCount);
+    setTotalPrice(totalPrice);
+  }
+
   const addToCart = food => {
     const cartItem = cartItems.find(item => item.food.id === food.id);
     if (cartItem) {
@@ -69,7 +77,7 @@ export default function CartProvider({ children }) {
     }
   }
 
-  return <CartContext.Provider value={{cart:{items:cartItems, totalCount, totalPrice},removeFromCart, changeQuantity, addToCart}}>
+  return <CartContext.Provider value={{cart:{items:cartItems, totalCount, totalPrice},removeFromCart, changeQuantity, addToCart, clearCart}}>
     {children}
   </CartContext.Provider>
 }
