@@ -43,7 +43,7 @@ router.get('/search/:searchTerm', handler(async(req, res) => {
   const searchRegex = new RegExp(searchTerm, 'i');
 
   const foods =await FoodModel.find({name:{$regex: searchRegex}});
-
+  console.log(foods);
   res.send(foods);
 }));
 
