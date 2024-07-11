@@ -5,9 +5,14 @@ import userRouter from './routers/user.router.js'
 import orderRouter from './routers/order.router.js'
 import dotenv from 'dotenv';
 dotenv.config();
+import { fileUrlToPath } from 'url';
 
 import { dbconnect } from './config/database.config.js';
+import { dirname } from 'path';
 dbconnect();
+
+const __filename = fileUrlToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 app.use(express.json());
@@ -20,7 +25,15 @@ app.use('/api/foods', foodRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
-const PORT = 4000;
+const publicFolder = path.join(__dirname, 'public');
+app.use(express.static(publicFolder));
+
+app.get('*', (req, res) => {
+  const indexFilePath = path.join(publicFolder, 'index.html');
+  res.sendFile(indexFilePath);
+});
+
+const PORT = 5000;
 
 app.listen(PORT, () => {
   console.log('listening on port' + PORT);
