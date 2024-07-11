@@ -5,13 +5,13 @@ import userRouter from './routers/user.router.js'
 import orderRouter from './routers/order.router.js'
 import dotenv from 'dotenv';
 dotenv.config();
-import { fileUrlToPath } from 'url';
-
+import { fileURLToPath } from 'url';
+import path from 'path';
 import { dbconnect } from './config/database.config.js';
 import { dirname } from 'path';
 dbconnect();
 
-const __filename = fileUrlToPath(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
@@ -33,7 +33,7 @@ app.get('*', (req, res) => {
   res.sendFile(indexFilePath);
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log('listening on port' + PORT);
