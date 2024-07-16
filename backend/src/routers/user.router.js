@@ -6,6 +6,7 @@ import { UserModel } from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
 const PASSWORD_HASH_SALT_ROUNDS = 10;
 import auth from '../middleware/auth.mid.js';
+import admin from '../middleware/admin.mid.js';
 
 
 const router = Router();
@@ -84,7 +85,32 @@ router.put(
 
     res.send();
   })
-)
+);
+
+router.get('/getall/:searchTerm?', admin, handler(async (req, res) => {
+  const { searchTerm } = req.params;
+
+  const filter = searchTerm ? { name: { $regex: new RegExp(searchTerm, 'i') } } : {};
+
+  const users = await UserModel.find(filter, { password: 0 });
+  res.send(users);
+}));
+
+router.put('/toogleBlock/:userId', admin, handler(async (req, res) => {
+  const { userId } = req.params;
+
+  if (userId === req.user.id) {
+    res.status(BAD_REQUEST).send("Cant block yourself");
+    return;
+  }
+
+  const user = await UserModel.findById(userId);
+  user.isBlocked = !user.isBlocked;
+  user.save();
+
+  res.send(user.isBlocked);
+}
+))
 const generateTokenRespons = user => {
   const token = jwt.sign({
     id: user.id,

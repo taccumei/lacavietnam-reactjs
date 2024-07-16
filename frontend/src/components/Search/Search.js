@@ -3,17 +3,21 @@ import classes from './search.module.css';
 import { useState } from 'react';
 import { useNavigate , useParams} from 'react-router-dom';
 
-export default function Search() {
+Search.defaultProps = {
+  searchRoute: '/search',
+  defaultRoute:'/'
+}
+export default function Search({searchRoute, defaultRoute, margin}) {
   const [term, setTerm] = useState('');
   const navigate = useNavigate();
   const { searchTerm } = useParams();
 
   const search = async () => {
-    term ? navigate('/search/' + term) : navigate('/');
+    term ? navigate(searchRoute + term) : navigate(defaultRoute);
   }
   
   return (
-    <div className={classes.container}>
+    <div className={classes.container} style={{margin}}>
       <input type='text'
         placeholder='Craving for...'
         onChange={e => setTerm(e.target.value)}
