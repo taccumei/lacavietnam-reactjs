@@ -109,8 +109,20 @@ router.put('/toogleBlock/:userId', admin, handler(async (req, res) => {
   user.save();
 
   res.send(user.isBlocked);
-}
-))
+}));
+
+router.get('/getById/:userId', admin, handler(async (req, res) => {
+  const { userId } = req.params;
+  const user = await UserModel.findById(userId, { password: 0 });
+  res.send(user);
+}));
+
+router.put('/update', admin, handler(async (req, res) => {
+  const { id, name, email, address, isAdmin } = req.body;
+  await UserModel.findByIdAndUpdate(id, { name, email, address, isAdmin,});
+  res.send();
+}));
+
 const generateTokenRespons = user => {
   const token = jwt.sign({
     id: user.id,

@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { useEffect } from 'react'
+import { EMAIL } from '../../constants/patterns'
 
 export default function RegisterPage() {
   const auth = useAuth();
@@ -50,10 +51,7 @@ export default function RegisterPage() {
           label="Email"
           {...register('email', {
             required: true,
-            pattern: {
-              value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,63}$/i,
-              message: 'Email Is Not valid',
-        },
+            pattern: EMAIL,
         })}
           error={errors.name}
         />
