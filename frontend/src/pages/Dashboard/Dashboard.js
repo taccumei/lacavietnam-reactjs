@@ -37,14 +37,6 @@ const allItems = [
     bgColor: '#ec407a',
     color: 'white',
   },
-    {
-    title: 'Foods',
-    imageUrl: '/icons/foods.svg',
-    url: '/admin/foods',
-    forAdmin: true,
-    bgColor: '#e040fb',
-    color: 'white',
-  },
   {
     title: 'Profile',
     imageUrl: '/icons/profile.svg',
@@ -60,5 +52,12 @@ const allItems = [
     bgColor: '#00bfa5',
     color: 'white',
   },
-
+  {
+    title: 'Foods',
+    imageUrl: '/icons/foods.svg',
+    url: '/admin/foods',
+    forAdmin: true,
+    bgColor: '#e040fb',
+    color: 'white',
+  },
 ];

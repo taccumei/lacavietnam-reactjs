@@ -55,7 +55,7 @@ export default function FoodsAdminPage() {
           foods && 
           foods.map(food => (
             <div key={food.id} className={classes.list_item}>
-              <img src={food.imageURL} alt={food.name} />
+              <img src={food.imageUrl} alt={food.name} />
               <Link to={'/food/' + food.id}>{food.name}</Link>
               <Price price={food.price} />
               <div className={classes.actions}>

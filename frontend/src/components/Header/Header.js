@@ -22,7 +22,7 @@ const Header = () => {
                 <li className={classes.menu_container}>
                   <Link to="/dashboard">{user.name}</Link>
                   <div className={classes.menu}>
-                    <Link to="/orders">Profile</Link>
+                    <Link to="/profile">Profile</Link>
                     <Link to="/orders">Orders</Link>
                     <a onClick={logout}>Log Out</a>
                   </div>
