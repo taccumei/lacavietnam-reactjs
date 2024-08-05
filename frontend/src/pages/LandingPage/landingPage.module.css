@@ -1,0 +1,60 @@
+.container{
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(./landing_page/landing-page-2.jpg);
+  background-size: cover;
+  margin: 0;
+}
+
+.content{
+  width: 40%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  justify-content: center;
+  color: #561C24;
+  margin-left: 50px;
+} 
+
+h1 {
+  margin: 1rem auto;
+  font-size: 2rem;
+  text-decoration: bold;
+  text-anchor: start;
+  text-shadow: #FC0 1px 0 10px;
+}
+
+h2 {
+  /* margin: 0.5rem auto; */
+  text-decoration: bold;
+  text-anchor: middle;
+  /* text-shadow: #FC0 1px 0 10px; */
+}
+
+tspan{
+  text-decoration: underline #561C24 wavy;
+}
+
+p {
+  margin: 0.5rem auto 1.5rem auto;
+  text-align: justify;
+  text-decoration: bold;
+  text-anchor: end;
+  font-weight: bold;
+  color: black;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0.1) ;
+  border: 1px solid #561C24;
+  font-size: 0.8rem;
+  padding: 10px 0;
+  width: 250px;
+  cursor: pointer;
+  color: #561C24;
+  font-weight: bold;
+} 
+
+button:hover{
+  background-color: #561C24;
+  color: white;
+}

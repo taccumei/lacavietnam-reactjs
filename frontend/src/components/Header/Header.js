@@ -12,7 +12,7 @@ const Header = () => {
     
     <header className={classes.header}>
       <div className={classes.container}>
-        <Link to="/" className={classes.logo}>
+        <Link to="/homepage" className={classes.logo}>
           La Ca Viet Nam
         </Link>
         <nav>
