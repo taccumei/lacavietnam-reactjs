@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    credentials: true,
+    credentials: true, //enable sending cookies and HTTP credentials with requests from the allowed origins
     origin: ['http://localhost:3000'],
   })
 );
