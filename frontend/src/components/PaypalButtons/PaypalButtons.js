@@ -17,6 +17,7 @@ export default function PaypalButtons({order}) {
   );
 }
 
+
 function Buttons({ order }) {
   const { clearCart } = useCart();
   const [{ isPending }] = usePayPalScriptReducer();

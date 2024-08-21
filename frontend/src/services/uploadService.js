@@ -29,8 +29,8 @@ const getImage = async event => {
 
   const file = files[0];
 
-  if (file.type !== 'image/jpeg') {
-    toast.error('Only JPG type is allowed', 'File Type Error');
+  if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
+    toast.error('Only PNG/JPEG type is allowed', 'File Type Error');
     return null;
   }
 

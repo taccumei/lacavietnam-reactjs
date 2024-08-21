@@ -5,6 +5,7 @@ import Title from '../../components/Title/Title';
 import { Link } from 'react-router-dom';
 import Price from '../../components/Price/Price';
 import NotFound from '../../components/NotFound/NotFound';
+import Button from '../../components/Button/Button';
 
 export default function CartPage() {
   const { cart, removeFromCart, changeQuantity } = useCart();
@@ -43,6 +44,7 @@ export default function CartPage() {
             </div>
           </li>)}
         </ul>
+
         <div className={classes.checkout}>
           <div>
             <div className={classes.foods_count}>                            {cart.totalCount}              
@@ -51,6 +53,8 @@ export default function CartPage() {
               <Price price={cart.totalPrice}/>
             </div>
           </div>
+          <Link to="/homepage">Add more item</Link>
+          <br/>
           <Link to="/checkout">Proceed To Checkout</Link>
         </div>
       </div>

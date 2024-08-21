@@ -30,3 +30,15 @@
   margin: 2rem;
   width: 35rem;
 }
+
+.back_button{
+  background-color: #561C24;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  width: 40px;
+  margin-top: 10px;
+  opacity: 0.8;
+}

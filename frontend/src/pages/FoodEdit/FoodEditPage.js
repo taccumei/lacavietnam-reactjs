@@ -57,7 +57,7 @@ export default function FoodEditPage() {
         <Title title={isEditMode ? 'Edit Food' : 'Add Food'} />
         <form className={classes.form} onSubmit={handleSubmit(submit)} noValidate>
           <InputContainer label="Select Image">
-            <input type='file' onChange={upload} accept="image/jpeg"/>
+            <input type='file' onChange={upload} accept="image/png"/>
           </InputContainer>
           {
             imageUrl && (

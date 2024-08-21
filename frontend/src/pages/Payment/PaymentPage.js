@@ -6,6 +6,7 @@ import Title from '../../components/Title/Title';
 import OrderItemsList from '../../components/OrderItemsList/OrderItemsList';
 import Map from '../../components/Map/Map';
 import PaypalButtons from '../../components/PaypalButtons/PaypalButtons';
+import { Link } from 'react-router-dom';
 
 export default function PaymentPage() {
   const [order, setOrder] = useState();
@@ -30,7 +31,9 @@ export default function PaymentPage() {
             <span>{order.address}</span>
           </div>
         </div>
-        <OrderItemsList order={order}/>
+        <OrderItemsList order={order} />
+        <Link to="/checkout" className={classes.back_button}>&#8249;</Link>
+
       </div>
 
       <div className={classes.map}>

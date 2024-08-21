@@ -87,9 +87,11 @@
   padding: 1rem;
   border-radius: 10rem;
   outline: none;
+  margin-bottom: 10px;
 }
 
 .container button:hover{
   opacity: 0.8;
   cursor: pointer;
 }
+

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useCart } from '../../hooks/useCart'
 import { useAuth } from '../../hooks/useAuth'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { createOrder } from '../../services/orderService';
@@ -11,7 +11,6 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import OrderItemsList from '../../components/OrderItemsList/OrderItemsList';
 import Map from '../../components/Map/Map';
-import { latLng } from 'leaflet';
 
 
 export default function CheckoutPage() {
@@ -52,9 +51,9 @@ export default function CheckoutPage() {
             {...register('address')}
             error={errors.address} />
         </div>  
-        <OrderItemsList order={order}/>
-      </div>
-      
+        <OrderItemsList order={order} />
+        <Link to="/cart" className={classes.back_button}>&#8249;</Link>
+      </div>      
       <div>
         <Title title="Choose your Location" fontSize="1.6rem" />
         <Map location={order.addressLatLng} onChange={latlng => {

@@ -55,7 +55,7 @@ router.put('/updateProfile', auth, handler(async (req, res) => {
   const user = await UserModel.findByIdAndUpdate(
     req.user.id,
     { name, address },
-    { new: true }
+    // { new: true }
   );
 
   res.send(generateTokenRespons(user));

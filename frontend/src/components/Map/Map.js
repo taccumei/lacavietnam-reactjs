@@ -42,7 +42,7 @@ function FindButtonAndMarker({ readonly, location, onChange }) {
     click(e) {
       !readonly && setPosition(e.latlng);
     },
-    locationfound(e) {
+    locationfound(e) { //after clicking find my location
       setPosition(e.latlng);
       map.flyTo(e.latlng, 13);
     },
@@ -63,7 +63,7 @@ function FindButtonAndMarker({ readonly, location, onChange }) {
       <button
         type='button'
         className={classes.find_location}
-        onClick={() => map.locate()}>
+        onClick={() => map.locate()}> {/* finding user current location */}
         Find My Location
       </button>
     )}
